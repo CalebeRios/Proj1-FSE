@@ -59,6 +59,12 @@ Os resultados desse relatório foi baseado nesse [csv](doc/OnOff-Pot/on-off.csv)
 
 Essa estratégia liga o resistor ou a ventoinha em uma intensidade determinada pelo calculo do PID.
 
+Em todos os testes foram utilizadas as seguintes constantes:
+
+- Kp = 5.0
+- Ki = 1.0
+- Kd = 5.0
+
 Foi dividido em 2 partes, uma onde a temperatura de referência foi pega pelo terminal e a outra foi pega pelo potênciometro:
 
 #### **Terminal**
