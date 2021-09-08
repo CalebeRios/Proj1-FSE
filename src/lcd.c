@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "lcd.h"
+#include "../inc/lcd.h"
 
 // float to string
 void typeFloat(float myFloat)   {
@@ -88,17 +88,22 @@ void lcd_init() {
   delayMicroseconds(500);
 }
 
-void write_lcd(float ti, float te, float tr) {
+void write_lcd(float ti, float te, float tr, int pid) {
     ClrLcd();
+    
     lcdLoc(LINE1);
+    
     typeln("TI ");
-
     typeFloat(ti);
+    
     typeln("TE ");
-
     typeFloat(te);
+    
     lcdLoc(LINE2);
 
     typeln("TR ");
     typeFloat(tr);
+    
+    typeln("PID ");
+    typeInt(pid);
 }

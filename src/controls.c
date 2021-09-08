@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-#include "../wiring-pi/wiring-pi.h"
-#include "../pid/pid.h"
-#include "../sensors/sensors.h"
+#include "../inc/wiring-pi.h"
+#include "../inc/pid.h"
+#include "../inc/sensors.h"
 
 extern int actuators;
 

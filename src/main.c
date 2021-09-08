@@ -6,17 +6,17 @@
 #include <signal.h>
 #include <pthread.h>
 
-#include "./bme280/bme280.h"
-#include "./lcd/lcd.h"
-#include "./pid/pid.h"
-#include "./uart/uart.h"
-#include "./menu/menu.h"
-#include "./controls/controls.h"
-#include "./wiring-pi/wiring-pi.h"
-#include "./csv/csv.h"
-#include "./sensors/sensors.h"
-#include "./main.h"
-#include "./global.h"
+#include "../inc/bme280.h"
+#include "../inc/lcd.h"
+#include "../inc/pid.h"
+#include "../inc/uart.h"
+#include "../inc/menu.h"
+#include "../inc/controls.h"
+#include "../inc/wiring-pi.h"
+#include "../inc/csv.h"
+#include "../inc/sensors.h"
+#include "../inc/main.h"
+#include "../inc/global.h"
 
 pthread_t id;
 struct Temperatures temp = { .temp_ext = 0, .temp_int = 0, .temp_ref = 0 };
@@ -32,13 +32,11 @@ void read_and_print_temperature() {
     read_temperatures(temp_ref_strategy, temp_ref);
     int key = read_manual_key(control_strategy);
 
-    write_lcd(temp.temp_int, temp.temp_ext, temp.temp_ref);
+    write_lcd(temp.temp_int, temp.temp_ext, temp.temp_ref, actuators);
 
     if (control_strategy == 1 || (control_strategy == 3 && key == 0)) {
-        printf("On/Off Values: %d %d %f, %f, %f\n", control_strategy, temp_ref_strategy, temp.temp_int, temp.temp_ref, histerese);
         on_off(temp.temp_int, temp.temp_ref, histerese);
     } else {
-        printf("PID Values: %d %d %f, %f, %lf, %lf, %lf\n", control_strategy, temp_ref_strategy, temp.temp_int, temp.temp_ref, kp, ki, kd);
         pid(temp.temp_int, temp.temp_ref);
     }
 
@@ -63,11 +61,6 @@ int main() {
     init_sensors();
 
     print_menu();
-
-    printf("%d\n", control_strategy);
-    printf("%d\n", temp_ref_strategy);
-    printf("%d\n", histerese);
-    printf("%d %d %d\n", kp, ki, kd);
 
     if (control_strategy == 2) {
         pid_configura_constantes(kp, ki, kd);

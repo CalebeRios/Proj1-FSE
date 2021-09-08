@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <unistd.h>
 
-#include "../uart/uart.h"
-#include "../bme280/bme280.h"
-#include "../global.h"
+#include "../inc/uart.h"
+#include "../inc/bme280.h"
+#include "../inc/global.h"
+#include "../inc/main.h"
 
 void read_temperatures(int temp_ref_strategy, float temp_ref) {
     temp.temp_ext = get_external_temperature();
@@ -22,6 +23,8 @@ void read_temperatures(int temp_ref_strategy, float temp_ref) {
     printf("TI: %.2f\n", temp.temp_int);
     printf("TE: %.2f\n", temp.temp_ext);
     printf("TR: %.2f\n", temp.temp_ref);
+    printf("TR: %d\n", actuators);
+    printf("------------\n");
 }
 
 int read_manual_key(int control_strategy) {

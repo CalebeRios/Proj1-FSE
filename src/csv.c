@@ -3,7 +3,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#include "../global.h"
+#include "../inc/global.h"
 
 FILE *fp;
 

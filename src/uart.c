@@ -4,10 +4,10 @@
 #include <string.h>
 #include <fcntl.h>
 
-#include "../crc/crc.h"
+#include "../inc/crc.h"
 
-char buffer[256] = {0};
-char *array = &buffer[0];
+unsigned char buffer[256] = {0};
+unsigned char *array = &buffer[0];
 int fd;
 char address = 0x01;
 
@@ -30,9 +30,8 @@ void calcule_CRC(int length) {
 }
 
 void read_trash() {
-    int byte_len;
     char tmp;
-    byte_len = read(fd, &tmp, 1);
+    read(fd, &tmp, 1);
 }
 
 void write_uart(char code, char subcode) {
@@ -46,7 +45,7 @@ void write_uart(char code, char subcode) {
     
     calcule_CRC(0);
 
-    int byte_len = write(fd, buffer, 9);
+    write(fd, buffer, 9);
 
     clean_buffer();
     sleep(1);
@@ -68,21 +67,19 @@ void write_int_uart(char code, char subcode, int value) {
 
     calcule_CRC(4);
 
-    int byte_len = write(fd, buffer, 13);
+    write(fd, buffer, 13);
 
     clean_buffer();
 }
 
 int read_int_uart() {
-    char tmp;
     int value;
-    int byte_len;
 
     read_trash();
     read_trash();
     read_trash();
 
-    byte_len = read(fd, &value, sizeof(int));
+    read(fd, &value, sizeof(int));
 
     read_trash();
     read_trash();
@@ -91,15 +88,13 @@ int read_int_uart() {
 }
 
 float read_float_uart() {
-    char tmp;
     float value;
-    int byte_len;
 
     read_trash();
     read_trash();
     read_trash();
 
-    byte_len = read(fd, &value, sizeof(float));
+    read(fd, &value, sizeof(float));
 
     read_trash();
     read_trash();
