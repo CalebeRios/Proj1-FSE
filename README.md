@@ -43,17 +43,17 @@ Foi dividido em 2 partes, uma onde a temperatura de referência foi pega pelo te
 
 #### **Terminal**
 
-Os resultados desse relatório foi baseado nesse [csv](doc/on-off.csv).
+Os resultados desse relatório foi baseado nesse [csv](doc/OnOff-Term/on-off.csv).
 
-![OnOff-Term1](doc/OnOff-Term1.png)
-![OnOff-Term2](doc/OnOff-Term2.png)
+![OnOff-Term1](doc/OnOff-Term/OnOff-Term1.png)
+![OnOff-Term2](doc/OnOff-Term/OnOff-Term2.png)
 
 #### **Potênciometro**
 
-Os resultados desse relatório foi baseado nesse [csv](doc/on-off-2.csv).
+Os resultados desse relatório foi baseado nesse [csv](doc/OnOff-Pot/on-off.csv).
 
-![OnOff-Pot1](doc/OnOff-Pot1.png)
-![OnOff-Pot2](doc/OnOff-Pot2.png)
+![OnOff-Pot1](doc/OnOff-Pot/OnOff-Pot1.png)
+![OnOff-Pot2](doc/OnOff-Pot/OnOff-Pot2.png)
 
 ### **PID**
 
@@ -63,17 +63,17 @@ Foi dividido em 2 partes, uma onde a temperatura de referência foi pega pelo te
 
 #### **Terminal**
 
-Os resultados desse relatório foi baseado nesse [csv](doc/pid.csv).
+Os resultados desse relatório foi baseado nesse [csv](doc/PID-Term/pid.csv).
 
-![PID-Term1](doc/PID-Term1.png)
-![PID-Term2](doc/PID-Term2.png)
+![PID-Term1](doc/PID-Term/PID-Term1.png)
+![PID-Term2](doc/PID-Term/PID-Term2.png)
 
 #### **Potênciometro**
 
-Os resultados desse relatório foi baseado nesse [csv](doc/pid-2.csv).
+Os resultados desse relatório foi baseado nesse [csv](doc/PID-Pot/pid.csv).
 
-![PID-Pot1](doc/PID-Pot1.png)
-![PID-Pot2](doc/PID-Pot2.png)
+![PID-Pot1](doc/PID-Pot/PID-Pot1.png)
+![PID-Pot2](doc/PID-Pot/PID-Pot2.png)
 
 ## **Mais informações**
 
